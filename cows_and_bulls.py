@@ -24,7 +24,7 @@ user_results = {
     'guess' : "",
     'target_number' : format_number(random.randint(0,9999))
 }
-
+print (user_results['target_number'])
 print("Welcome to the Cows and Bulls Game!")
 print("Enter a 4 digit number - ")
 print("it will be compared to a random 4 digit number")
@@ -60,8 +60,11 @@ while user_results['target_number'] != user_results['guess'] :
 
 
 if all(user_results['number_by_number_results']) :
-    print ("You win!")
     print("Number of total escaped cows: " + str(user_results['num_cows']))
     print("Number of total escaped bulls: " + str(user_results['num_bulls']))
+    if(user_results['num_cows'] + user_results['num_bulls'] == 4) : print("Perfect!")
+    elif(user_results['num_cows'] + user_results['num_bulls'] <= 20) : print("Oh dang! You got it!")
+    elif(user_results['num_cows'] + user_results['num_bulls'] <= 30) : print("Finally under control! Now you just gotta look for a missing herd.")
+    else : print("At least it's closed. Now time to send out the swad to recover all that cattle!")
 else :
     print("You lost, all of the cows and bulls escaped!")
