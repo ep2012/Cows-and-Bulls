@@ -7,10 +7,10 @@ INVALID_NUMBER = "invalid number"
 
 def format_number(number = 0000) :
     number = str(number)
-    if len(number) == 4 : return str(number)
-    elif len(number) == 3 : return "0" + str(number)
-    elif len(number) == 2 : return "00" + str(number)
-    elif len(number) == 1 : return "000" + str(number)
+    if len(number) == 4 : return number
+    elif len(number) == 3 : return "0" + number
+    elif len(number) == 2 : return "00" + number
+    elif len(number) == 1 : return "000" + number
     else : return INVALID_NUMBER
 
 user_results = {
