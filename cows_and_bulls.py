@@ -6,13 +6,16 @@ import random
 INVALID_NUMBER = "invalid number"
 
 def format_number(number = 0000) :
-    if type(number) is not int : return INVALID_NUMBER
-    number = str(number)
-    if len(number) == 4 : return number
-    elif len(number) == 3 : return "0" + number
-    elif len(number) == 2 : return "00" + number
-    elif len(number) == 1 : return "000" + number
-    else : return INVALID_NUMBER
+    try :
+        int(number)
+        number = str(number)
+        if len(number) == 4 : return number
+        elif len(number) == 3 : return "0" + number
+        elif len(number) == 2 : return "00" + number
+        elif len(number) == 1 : return "000" + number
+        else : return INVALID_NUMBER
+    except :
+        return INVALID_NUMBER
 
 user_results = {
     'number_by_number_results' : [bool(0),bool(0),bool(0),bool(0)],
@@ -35,7 +38,7 @@ print("but this makes everything escape")
 
 while user_results['target_number'] != user_results['guess'] :
     user_results['guess'] = raw_input("Enter your guess: ")
-    if user_results['guess'] == "exit" : break
+    if user_results['guess'].lower() == "exit" : break
     user_results['guess'] = format_number(user_results['guess'])
 
     if user_results['guess'] == INVALID_NUMBER : print(INVALID_NUMBER)
