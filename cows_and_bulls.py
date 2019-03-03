@@ -5,7 +5,7 @@ import random
 
 INVALID_NUMBER = "invalid number"
 
-def format_number(number = 0000) :
+def format_number(number = INVALID_NUMBER) :
     try :
         int(number)
         number = str(number)
