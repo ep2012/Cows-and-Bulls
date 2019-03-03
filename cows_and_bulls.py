@@ -7,7 +7,7 @@ INVALID_NUMBER = "invalid number"
 
 def format_number(number = INVALID_NUMBER) :
     try :
-        int(number)
+        int(number) #cast the number to make sure it was properly passed in by the user
         number = str(number)
         if len(number) == 4 : return number
         elif len(number) == 3 : return "0" + number
@@ -57,7 +57,6 @@ while user_results['target_number'] != user_results['guess'] :
         print("Number of newly escaped bulls: " + str(num_new_bulls))
         user_results['num_cows'] = user_results['num_cows'] + num_new_cows
         user_results['num_bulls'] = user_results['num_bulls'] + num_new_bulls
-
 
 if all(user_results['number_by_number_results']) :
     print("Number of total escaped cows: " + str(user_results['num_cows']))
