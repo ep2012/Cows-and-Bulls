@@ -24,7 +24,7 @@ user_results = {
     'guess' : "",
     'target_number' : format_number(random.randint(0,9999))
 }
-print (user_results['target_number'])
+
 print("Welcome to the Cows and Bulls Game!")
 print("Enter a 4 digit number - ")
 print("it will be compared to a random 4 digit number")
