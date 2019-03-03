@@ -6,6 +6,7 @@ import random
 INVALID_NUMBER = "invalid number"
 
 def format_number(number = 0000) :
+    if type(number) is not int : return INVALID_NUMBER
     number = str(number)
     if len(number) == 4 : return number
     elif len(number) == 3 : return "0" + number
@@ -29,9 +30,11 @@ print("Each time you previously guessed a digit and")
 print("the digit is now incorrect, a bull escapes.")
 print("Once you guess all 4 digits, the game ends and they stop escaping.")
 print("The goal is to have the least amount of cows and bulls escape.")
+print("You may exit at any time by entering 'exit'")
 
 while user_results['target_number'] != user_results['guess'] :
-    user_results['guess'] = input("Enter your guess or exit() to exit: ")
+    user_results['guess'] = raw_input("Enter your guess: ")
+    if user_results['guess'] == "exit" : break
     user_results['guess'] = format_number(user_results['guess'])
 
     if user_results['guess'] == INVALID_NUMBER : print(INVALID_NUMBER)
@@ -51,6 +54,10 @@ while user_results['target_number'] != user_results['guess'] :
         user_results['num_cows'] = user_results['num_cows'] + num_new_cows
         user_results['num_bulls'] = user_results['num_bulls'] + num_new_bulls
 
-print("Number of total escaped cows: " + str(user_results['num_cows']))
-print("Number of total escaped bulls: " + str(user_results['num_bulls']))
-if all(user_results['number_by_number_results']) : print ("You win!")
+
+if all(user_results['number_by_number_results']) :
+    print ("You win!")
+    print("Number of total escaped cows: " + str(user_results['num_cows']))
+    print("Number of total escaped bulls: " + str(user_results['num_bulls']))
+else :
+    print("You lost, all of the cows and bulls escaped!")
