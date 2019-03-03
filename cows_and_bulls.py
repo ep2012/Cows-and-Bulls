@@ -31,6 +31,7 @@ print("the digit is now incorrect, a bull escapes.")
 print("Once you guess all 4 digits, the game ends and they stop escaping.")
 print("The goal is to have the least amount of cows and bulls escape.")
 print("You may exit at any time by entering 'exit'")
+print("but this makes everything escape")
 
 while user_results['target_number'] != user_results['guess'] :
     user_results['guess'] = raw_input("Enter your guess: ")
